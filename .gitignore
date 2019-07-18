@@ -4,11 +4,12 @@ paper/manubot/build/*
 paper/manubot/output/*
 paper/manubot/ci/*
 paper/manubot/.travis.yml
-paper/manubot/content/old_todelete/03.material-methods.md
+paper/manubot/content/old_todelete/*
 paper/manubot/rootstock-master.zip
 paper/manubot/rootstock-master/*
 paper/manubot/output/README.md
 paper/manubot/README.md
 paper/manubot/SETUP.md
 paper/manubot/USAGE.md
-paper/manubot/output/README.md
+paper/manubot/output/*
+
