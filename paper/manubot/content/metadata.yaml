@@ -1,0 +1,23 @@
+---
+title: "Four use cases of FAIR maturity indicators in the life sciences"
+keywords:
+  - FAIR
+  - ...
+lang: en-US
+author_info:
+  -
+    github: sbonaretti
+    name: Serena Bonaretti
+    orcid: 0000-0003-4264-1773
+    twitter: SerenaBonaretti
+    email: serena.bonaretti@maastrichtuniversity.nl
+    affiliations:
+      - Department of Bioinformatics, Maastricht University, The Netherlands
+  -
+    github: egonw
+    name: Egon Willighagen
+    orcid: 0000-0001-7542-0286
+    twitter: egonwillighagen
+    email: egon.willighagen@maastrichtuniversity.nl
+    affiliations:
+      - Department of Bioinformatics, Maastricht University, The Netherlands
