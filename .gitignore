@@ -1,4 +1,3 @@
-
 *.DS_Store
 paper/manubot/build/
 paper/manubot/ci/
@@ -11,9 +10,9 @@ paper/manubot/SETUP.md
 paper/manubot/USAGE.md
 paper/manubot/.travis.yml
 paper/manubot/.gitignore
-paper/webpage/images/
-paper/webpage/index.html
-paper/webpage/manuscript.pdf
-paper/webpage/README.md
-paper/webpage/v/freeze/
-paper/webpage/v/latest/
+paper/manubot/webpage/images/
+paper/manubot/webpage/index.html
+paper/manubot/webpage/manuscript.pdf
+paper/manubot/webpage/README.md
+paper/manubot/webpage/v/freeze/
+paper/manubot/webpage/v/latest/
