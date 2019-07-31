@@ -1,4 +1,5 @@
 *.DS_Store
+.gitignore
 paper/manubot/build/
 paper/manubot/ci/
 paper/manubot/content/old_todelete/
@@ -19,3 +20,8 @@ paper/manubot/webpage/README.md
 paper/manubot/webpage/v/freeze/
 paper/manubot/webpage/v/latest/
 code/.ipynb_checkpoints/
+code/FAIR_analysis.ipynb
+code/FAIR_Parkinsons_AE.ipynb
+code/FAIR_NBIA_GEO.ipynb
+code/FAIR_TiO2_ENM.ipynb
+code/FAIR_Caffeine_ChEBI.ipynb
