@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Serena Bonaretti" />
   <meta name="author" content="Egon Willighagen" />
-  <meta name="dcterms.date" content="2019-08-06" />
+  <meta name="dcterms.date" content="2019-08-07" />
   <meta name="keywords" content="FAIR, …" />
   <title>Two real use cases of FAIR maturity indicators in the life sciences</title>
   <style>
@@ -23,7 +23,7 @@
 <header id="title-block-header">
 <h1 class="title">Two real use cases of FAIR maturity indicators in the life sciences</h1>
 </header>
-<p><small><em> This manuscript was automatically generated on August 6, 2019. </em></small></p>
+<p><small><em> This manuscript was automatically generated on August 7, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>Serena Bonaretti</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/0000-0003-4264-1773">0000-0003-4264-1773</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/sbonaretti">sbonaretti</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/SerenaBonaretti">SerenaBonaretti</a><br> <small> Department of Bioinformatics - BiGCaT, NUTRIM, Maastricht University, The Netherlands </small></p></li>
@@ -32,13 +32,11 @@
 <h2 id="abstract" class="page_break_before">Abstract</h2>
 <p>Data reuse is crucial to enhance scientific progress and maximize return on science investments. Given the incremented availability, manual and automatic retrieval of data for new research questions can be challenging. Among the guidelines created to enhance data retrieval, the FAIR (findable, accessible, interoperable, reusable) principles are increasingly adopted at an institutional and funding level. Metrics to assess FAIRness of data repositories are under study and contributions are highly encouraged. In this work, we propose two real use-cases of researchers retrieving data from two different repositories (Array Express and Gene Expression Omnibus) to answer their research questions. <em>[The following part still requires some work]</em> For each use case, we harvested data and metadata via application program interface (API) and we calculated FAIR metrics […]. We found […]. To conclude […]</p>
 <h2 id="keywords">Keywords:</h2>
-<p>FAIR guidelines<br />
-FAIR Maturity indicators Life sciences<br />
-Jupyter notebook</p>
+<p>FAIR guidelines; FAIR Maturity indicators; Life sciences; Jupyter notebook</p>
 <h2 id="introduction" class="page_break_before">Introduction</h2>
 <!--DATA SHARING AND REUSE-->
 <p>Data sharing and data reuse are two complementary aspects of modern research activity. Researchers share their data for a sense of community, to demonstrate integrity of acquired data, <!--integrity--> and to enhance quality and reproducibility of research work <span class="citation" data-cites="KFfUONus">[<a href="#ref-KFfUONus" role="doc-biblioref">1</a>]</span>. <!--and to benchmark findings and methodologies [cit].--> In addition, data sharing is supported by the emerging citation system for datasets, scientific journals requirements, and funding agencies that want to maximize their return on science investments <span class="citation" data-cites="xf44BZw9">[<a href="#ref-xf44BZw9" role="doc-biblioref">2</a>]</span>, <span class="citation" data-cites="pEG8uFZE">[<a href="#ref-pEG8uFZE" role="doc-biblioref">3</a>]</span>. At the same time, researchers are eager to reuse available data to integrate information that answer interdisciplinary research questions and to optimize use of fundings <span class="citation" data-cites="dyjCbw8L">[<a href="#ref-dyjCbw8L" role="doc-biblioref">4</a>]</span>. <em>[The following part of this paragraph still requires some work]</em> Although attitudes towards data sharing and reuse are increasingly favorable [12], data discovery and re-use remain difficult in practice [11]. Studies show that 40% of qualitative data sets were never downloaded, and about 25% of data is used just 1-10 times. In addition, data availability decreases 17% per year [10] due to… To happen, data sharing and reuse need appropriate data management, including quality, standardization, ethics, and security [cit]. (infrastructure) Data retrieval, the process of identifying and extracting data from a database using a query <span class="citation" data-cites="D6wjcBsJ">[<a href="#ref-D6wjcBsJ" role="doc-biblioref">5</a>]</span>, is one of the main challenges of data reuse.</p>
-<p>In 2016, the FORCE 11 group proposed guidelines to increase data reuse in the life sciences. These guidelines aimed to make data findable, accessible, interoperable, and reusable, and were summarized in the acronym FAIR <span class="citation" data-cites="6DjakjNS">[<a href="#ref-6DjakjNS" role="doc-biblioref">6</a>]</span> (principles fully listed in Table <a href="#maturity_indicators">2</a>). In a short time the FAIR guidelines have gained remarkable popularity, and they are currently supported by funding agencies and political entities, such as the European Commission, the National Institutes of Health in the United States, and institutions in Africa and Australia <span class="citation" data-cites="u8Cy0psL">[<a href="#ref-u8Cy0psL" role="doc-biblioref">7</a>]</span>. In addition, academic and institutional initiatives were launched to promote and implement data FAIRness, such as <a href="https://www.go-fair.org/">GOFAIR</a> and <a href="https://fairsharing.org/">FAIRsharing</a>. Although largely adopted, the FAIR principles do not specify any technical requirement as they are deliberately intended as aspirational <span class="citation" data-cites="u8Cy0psL">[<a href="#ref-u8Cy0psL" role="doc-biblioref">7</a>]</span>. The lack of practical specifications generated a large spectrum of interpretations and concerns and raised the need to define measurements of data FAIRness. Some of the authors of the seminal paper proposed a set of FAIR metrics <span class="citation" data-cites="14foUQTpW">[<a href="#ref-14foUQTpW" role="doc-biblioref">8</a>]</span>, subsequently reformulated as FAIR maturity indicators <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span>. At the same time, they invited consortia and communities to suggest and create alternative evaluators. The majority of the proposed tools are online questionnaires that researchers and repository curators can manually fill to assess the FAIRness of their data (Table <a href="#literature">1</a>). However, the FAIR metrics guidelines stress on the importance of creating “objective, quantitative, machine-interpretable” evaluators <span class="citation" data-cites="14foUQTpW">[<a href="#ref-14foUQTpW" role="doc-biblioref">8</a>]</span>. Following this criterion, two platforms have recently been developed to automatically compute FAIR maturity indicators: <a href="https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/">FAIR Evaluation Services</a> and <a href="https://fairshake.cloud/">FAIRshake</a>. The first platform offers evaluation of maturity indicators and compliance tests <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span>, whereas the second platform provides metrics, rubrics and assessments for registered digital resources <span class="citation" data-cites="aNdiyMUf">[<a href="#ref-aNdiyMUf" role="doc-biblioref">10</a>]</span>. Both platforms provide use-cases for FAIRness assessment, however they do not provide systematic analysis of evaluated datasets and repositories. In the literature, two studies report evaluation of FAIRness for large datasets. Dunning et al. <span class="citation" data-cites="171FPA92w">[<a href="#ref-171FPA92w" role="doc-biblioref">11</a>]</span> used a qualitative approach to investigate 37 repositories and databases. They assessed FAIRness using a traffic-light rating system that ranges from no to full compliance. Weber et al. <span class="citation" data-cites="fX0kfRFY">[<a href="#ref-fX0kfRFY" role="doc-biblioref">12</a>]</span> implemented a computational workflow to analyze the retrieval of more than a million images from five repositories. They proposed metrics specific for images, including time and place of acquisition to assess image provenance. The first study provides valuable concrete guidelines to assess data FAIRness, whereas the second study constitutes a solid example of computational implementation.</p>
+<p>In 2016, the FORCE 11 group proposed guidelines to increase data reuse in the life sciences. These guidelines aimed to make data findable, accessible, interoperable, and reusable, and were summarized in the acronym FAIR <span class="citation" data-cites="6DjakjNS">[<a href="#ref-6DjakjNS" role="doc-biblioref">6</a>]</span> (principles fully listed in Table <a href="#maturity_indicators">2</a>). In a short time the FAIR guidelines have gained remarkable popularity, and they are currently supported by funding agencies and political entities, such as the European Commission, the National Institutes of Health in the United States, and institutions in Africa and Australia <span class="citation" data-cites="u8Cy0psL">[<a href="#ref-u8Cy0psL" role="doc-biblioref">7</a>]</span>. In addition, academic and institutional initiatives were launched to promote and implement data FAIRness, such as <a href="https://www.go-fair.org/">GOFAIR</a> and <a href="https://fairsharing.org/">FAIRsharing</a>. Although largely adopted, the FAIR principles do not specify any technical requirement as they are deliberately intended as aspirational <span class="citation" data-cites="u8Cy0psL">[<a href="#ref-u8Cy0psL" role="doc-biblioref">7</a>]</span>. The lack of practical specifications generated a large spectrum of interpretations and concerns and raised the need to define measurements of data FAIRness. Some of the authors of the seminal paper proposed a set of FAIR metrics <span class="citation" data-cites="14foUQTpW">[<a href="#ref-14foUQTpW" role="doc-biblioref">8</a>]</span>, subsequently reformulated as FAIR maturity indicators <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span>. At the same time, they invited consortia and communities to suggest and create alternative evaluators. The majority of the proposed tools are online questionnaires that researchers and repository curators can manually fill to assess the FAIRness of their data (Table <a href="#literature">1</a>). However, the FAIR metrics guidelines emphasize on the importance of creating “objective, quantitative, machine-interpretable” evaluators <span class="citation" data-cites="14foUQTpW">[<a href="#ref-14foUQTpW" role="doc-biblioref">8</a>]</span>. Following this criterion, two platforms have recently been developed to automatically compute FAIR maturity indicators: <a href="https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/">FAIR Evaluation Services</a> and <a href="https://fairshake.cloud/">FAIRshake</a>. The first platform offers evaluation of maturity indicators and compliance tests <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span>, whereas the second platform provides metrics, rubrics and evaluators for registered digital resources <span class="citation" data-cites="aNdiyMUf">[<a href="#ref-aNdiyMUf" role="doc-biblioref">10</a>]</span>. Both platforms provide use cases for FAIRness assessment, however they do not provide systematic analysis of evaluated datasets and repositories. In the literature, two studies report evaluation of FAIRness for large datasets. Dunning et al. <span class="citation" data-cites="171FPA92w">[<a href="#ref-171FPA92w" role="doc-biblioref">11</a>]</span> used a qualitative approach to investigate 37 repositories and databases. They assessed FAIRness using a traffic-light rating system that ranges from no to full compliance. Differently, Weber et al. <span class="citation" data-cites="fX0kfRFY">[<a href="#ref-fX0kfRFY" role="doc-biblioref">12</a>]</span> implemented a computational workflow to analyze the retrieval of more than a million images from five repositories. They proposed metrics specific for images, including time and place of acquisition to assess image provenance. The first study provides valuable concrete guidelines to assess data FAIRness, whereas the second study constitutes a solid example of computational implementation.</p>
 <p><em>[The following paragraph still requires some work]</em> In this paper, we propose a computational approach to calculate FAIR maturity indicators in the life sciences. We followed the recommendations provided by the Maturity Indicator Authoring Group <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span> and we created a visualization tool to summarize and compare FAIR maturity indicators across various datasets and repositories. We tested our approach on two real use cases of data retrieval to answer research questions in system biology. We evaluated FAIRness for two repositories, i.e. ArrayExpress and Gene Expression Omnibus.<br />
 Finally, we made our work open and reproducible by using the open language python in a Jupyter notebook/</p>
 <!--
@@ -576,7 +574,7 @@ Table: Data harvesting evaluators in the literature.
 -->
 <h2 id="materials-and-methods" class="page_break_before">Materials and methods</h2>
 <h3 id="use-cases-in-the-life-sciences">Use cases in the life sciences</h3>
-<p>We asked researchers in our department for cases where they looked for datasets in a scientific repository to answer their research questions. We selected two cases that involved different repositoroes. For each use case, name used throughout the paper, research question, and investigated repository are:</p>
+<p>We asked researchers in our department for cases where they looked for datasets in a scientific repository to answer a research questions. We selected two cases that involved different repositories. For each use case, name used throughout the paper, research question, and investigated repository are:</p>
 <ul>
 <li><em>Parkinsons_AE</em>: What are the differentially expressed genes between normal subjects and subjects with Parkinson’s diseases in the brain frontal lobe? To answer this question, the researcher looked for a dataset in the search engine of ArrayExpress, a repository for microarray gene expression data based at the European Bioinformatics Institute (EBI), United Kingdom <span class="citation" data-cites="IiwoLWKI">[<a href="#ref-IiwoLWKI" role="doc-biblioref">13</a>]</span>;</li>
 <li><em>NBIA_GEO</em>: What is the function of mutation of WDR45 protein in the brain? In this case, the researcher looked for a dataset to analyze in the search engine of Gene Expression Onmibus (GEO), a repository containing gene expression and other functional genomics data hosted at the National Center for Biotechnology Information (NCBI), United States <span class="citation" data-cites="14VfbatMA">[<a href="#ref-14VfbatMA" role="doc-biblioref">14</a>]</span>. <!--
@@ -588,15 +586,16 @@ Table: Data harvesting evaluators in the literature.
 </ul>
 <h3 id="what-is-data-and-what-is-metadata">What is <em>data</em> and what is <em>metadata</em>?</h3>
 <p>The FAIR guidelines recursively use the terminology <em>data</em>, <em>metadata</em>, and <em>(meta)data</em>. <!-- (Table @tbl:maturity_indicators)--><br />
-<!-- % , to allow certain degree of interpretation for the user [3] - [3]seminal or mons --> For our computational implementation, we needed precise definitions of these terms. Accordingly to the Merrian-Webster online dictionary, <em>data</em> are “information in digital form that can be transmitted or processed” <span class="citation" data-cites="GSsGtdV0">[<a href="#ref-GSsGtdV0" role="doc-biblioref">15</a>]</span> whereas <em>metadata</em> are “data that provide information about other data” <span class="citation" data-cites="fcdNnWId">[<a href="#ref-fcdNnWId" role="doc-biblioref">16</a>]</span>. Following these definitions, we considered the dataset that researchers analyzed to answer to the research question as <em>data</em>, and the additional information provided in the database about <em>data</em> as <em>metadata</em>. In addition, we subdivided <em>metadata</em> (M) in groups according to the requirements of the FAIR guidelines (indicated with their enumeration):</p>
+<!-- % , to allow certain degree of interpretation for the user [3] - [3]seminal or mons --> For our computational implementation, we needed precise definitions of these terms. Accordingly to the Merrian-Webster online dictionary, <em>data</em> are “information in digital form that can be transmitted or processed” <span class="citation" data-cites="GSsGtdV0">[<a href="#ref-GSsGtdV0" role="doc-biblioref">15</a>]</span> whereas <em>metadata</em> are “data that provide information about other data” <span class="citation" data-cites="fcdNnWId">[<a href="#ref-fcdNnWId" role="doc-biblioref">16</a>]</span>. Following these definitions, we considered the dataset that researchers analyzed to answer their research question as <em>data</em>, and the additional information provided in the database about <em>data</em> as <em>metadata</em>. In addition, we defined <em>(meta)data</em> as <em>data</em> for the principles R1, R1.1, and R1.2, as <em>metadata</em> for the principles I1, I3, and as both <em>data</em> and <em>metadata</em> for the principles F1, F4, A1. (add to table)</p>
+<p>Finally, we specified the <em>metadata</em> to retrieve according to the requirements of the FAIR guidelines:</p>
 <ul>
-<li>M(F2): Information that allows researchers to find the dataset s/he looks for. It coincides with the keywords used in the search;</li>
-<li>M(F3): Identifier of the dataset in the repository;<br />
+<li>F2: Information that allows researchers to find the dataset s/he looks for. It coincides with the keywords used in the search;</li>
+<li>F3: Identifier of the dataset in the repository;<br />
 </li>
-<li>M(I3): Reference to other metadata;</li>
-<li>M(R1): Information about the dataset, other than the search keywords;</li>
-<li>M(R1.1): Data license;</li>
-<li>M(R1.2): Data provenance: publication title, author names, and one author’s email address. <!--    %See https://blog.datacite.org/exposing-doi-metadata-provenance/ with DOI https://doi.org/10.5438/wy92-xj57 --></li>
+<li>I3: Reference to other metadata;</li>
+<li>R1: Information about the dataset, other than the search keywords;</li>
+<li>R1.1: Data license;</li>
+<li>R1.2: Data provenance as publication title, author names, and one author’s email address. <!--    %See https://blog.datacite.org/exposing-doi-metadata-provenance/ with DOI https://doi.org/10.5438/wy92-xj57 --></li>
 </ul>
 <p>In all cases, we assumed that <em>data</em> and <em>metadata</em> were hosted in the same repository.</p>
 <h3 id="calculating-fair-maturity-indicators">Calculating FAIR maturity indicators</h3>
@@ -607,14 +606,12 @@ Table: Data harvesting evaluators in the literature.
 </li>
 <li>Searchable resource: We queried <a href="https://toolbox.google.com/datasetsearch">Google Dataset Search</a>, an emerging search engine specific for datasets, to quantify the principle F4.</li>
 </ul>
-<p>The output of queries consisted of information structured in <code>xml</code>, which we vectorized for easier string finding. Details about the computation of each specific maturity indicator are in Table <a href="#maturity_indicators">2</a> and in our Jupyter notebook (interactive on binder). To each maturity indicator, we assigned value 1 if the criterion was satisfied, 0 in the opposite case. The maturity indicator for F2, which we calculated as the ratio between the number of keywords in the dataset metadata over the total number of keywords used by the researcher in the manual query.</p>
-<p>We did not evaluate M(I2) because of the and M(1.3) because it requires community consensus, which still has to be formally reached.</p>
+<p>The output of queries consisted of information structured in <code>xml</code>. Details about the computation of each specific maturity indicator are in Table <a href="#maturity_indicators">2</a> and in our <a href="">Jupyter notebook-link</a> (interactive on <a href="">binder-link</a>). To the majority of the maturity indicators, we assigned value 1 if the criterion was satisfied and 0 in the opposite case. To the maturity indicator for F2 we assigned a number between 0 and 1 as we calculated it as the ratio between the number of keywords in the dataset metadata over the total number of keywords used by the researcher in the manual query. Similarly to what reported in the literature (Table <a href="#maturity_indicators">2</a>), we did not evaluate maturity indicators for the principles I2 and R1.3.</p>
 <!--We represented the state of maturity indicators using balloon plots (Fig. @fig:outcome_comparison), where the area of each point corresponds to the level of maturity indicator.-->
 <a name="maturity_indicators"></a>
 <table style="width:100%;">
 <caption>
-<span>Table 2:</span> FAIR principles and corresponding evaluation criteria proposed by the Maturity Indicator Authoring Group <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span>, a qualitative analysis by Dunning et al. <span class="citation" data-cites="171FPA92w">[<a href="#ref-171FPA92w" role="doc-biblioref">11</a>]</span>, a computational implementation by Weber et al. <span class="citation" data-cites="fX0kfRFY">[<a href="#ref-fX0kfRFY" role="doc-biblioref">12</a>]</span>, and our approach.<br />
-In our approach, <em>dataset</em> metadata refers to metadata retrieved from ArrayExpress and Gene Expression Omnibus, whereas <em>registry</em> metadata to metadata retrieved from re3data. Acronyms: GUID = Globally Unique IDentifier, A = automatic information retrieval, M = manual information retrieval.
+<span>Table 2:</span> FAIR principles and corresponding evaluation criteria proposed by the Maturity Indicator Authoring Group <span class="citation" data-cites="1GHtrFYzp">[<a href="#ref-1GHtrFYzp" role="doc-biblioref">9</a>]</span>, Dunning et al. <span class="citation" data-cites="171FPA92w">[<a href="#ref-171FPA92w" role="doc-biblioref">11</a>]</span>, Weber et al. <span class="citation" data-cites="fX0kfRFY">[<a href="#ref-fX0kfRFY" role="doc-biblioref">12</a>]</span>, and our approach. The criteria used in the first two works are extrapolated from their publication text, whereas the criteria by Weber et al. are from Table IV of their paper. The metrics Weber et al. developed are Q<sub>geo</sub> for image location, Q<sub>time</sub> for the time of picture acquisition, Q<sub>ret</sub> when data is automatically downloadable only given its metadata and Q<sub>lic</sub> for found license. In our approach, <em>dataset</em> metadata refers to metadata retrieved from ArrayExpress and Gene Expression Omnibus, whereas <em>registry</em> metadata consists of metadata retrieved from re3data. In addition, we indicate when we used <em>(meta)data</em> as (data) or (metadata), and an automatic (A) or manual (M) procedure for information retrieval. Acronyms: GUID = Globally Unique IDentifier, DOI = Digital Object Identifier.
 </caption>
 <colgroup>
 <col style="width: 19%" />
@@ -660,10 +657,10 @@ The GUID matches a scheme that is globally unique and persistent in FAIRsharing
 Persistent identifier is DOI or similar
 </td>
 <td>
-Pass
+Pass (embedded in DataCite)
 </td>
 <td>
-“doi” icon is enabled in www.re3data.org (M)
+“doi” icon is enabled in www.re3data.org (data) (M)
 </td>
 </tr>
 <!-- F2 -->
@@ -696,7 +693,7 @@ Metadata contains both its own GUID and the data GUID
 DOI of data is in metadata
 </td>
 <td>
-Pass
+Pass (embedded in DataCite)
 </td>
 <td>
 <em>Dataset</em> metadata contains dataset ID (A)
@@ -717,7 +714,7 @@ Dataset title found in google.com or duckduckgo.com
 Pass
 </td>
 <td>
-Dataset title found in Google Dataset Search (M)
+Dataset title found in Google Dataset Search (data) (M)
 </td>
 </tr>
 <!-- A1 -->
@@ -735,7 +732,7 @@ HTTP request returns 200
 Q <sub>ret</sub>
 </td>
 <td>
-HTTP request returns 200 (A)
+HTTP request returns 200 (data) (A)
 </td>
 </tr>
 <!-- A1.1 -->
@@ -804,10 +801,10 @@ If hash-style metadata (e.g. JSON) or Linked Data are found, pass
 Metadata is structured (e.g. Dublin Core)
 </td>
 <td>
-Pass
+Pass (embedded in DataCite)
 </td>
 <td>
-<em>Dataset</em> metadata is structured (e.g. xml) (M)
+<em>Dataset</em> metadata is structured (e.g. xml) (metadata) (M)
 </td>
 </tr>
 <!-- I2 -->
@@ -843,7 +840,7 @@ Links to publications and terms definitions
 N/A
 </td>
 <td>
-<em>Dataset</em> metadata includes reference to other dataset IDs (M)
+<em>Dataset</em> metadata includes reference to other dataset IDs (metadata) (M)
 </td>
 </tr>
 <!-- R1 -->
@@ -861,7 +858,7 @@ Metadata provide information on how to reuse a dataset
 Q <sub>geo</sub>, Q <sub>chrono</sub>
 </td>
 <td>
-<em>Dataset</em> metadata contain more information than search keywords (F2) (A)
+<em>Dataset</em> metadata contain more information than search keywords (F2) (metadata) (A)
 </td>
 </tr>
 <!-- R1.1 -->
@@ -879,7 +876,7 @@ Metadata license is present
 Q <sub>lic</sub>
 </td>
 <td>
-“datalicensename” and “datalicenseulr” are filled in <em>registry</em> metadata (A)
+“datalicensename” and “datalicenseulr” are filled in <em>registry</em> metadata (data) (A)
 </td>
 </tr>
 <!-- R1.2 -->
@@ -897,7 +894,7 @@ Documentation on how data was created
 N/A
 </td>
 <td>
-“authors”, “email” and “title” are filled in <em>dataset</em> metadata (A)
+“authors”, “email” and “title” are filled in <em>dataset</em> metadata (data) (A)
 </td>
 </tr>
 <!-- R1.3 -->
@@ -921,7 +918,7 @@ N/A
 </tbody>
 </table>
 <h3 id="visualizing-fair-maturity-indicators">Visualizing FAIR maturity indicators</h3>
-<p>To summarize and compare the outputs of our calculation, we created a customized balloon plots using the R library ggplot2 <span class="citation" data-cites="9ZeJmRhV">[<a href="#ref-9ZeJmRhV" role="doc-biblioref">17</a>]</span>. In the graph, each row corresponds to a user-case and each column to a FAIR maturity indicator. The size of each shape is the value of a specific FAIR maturity indicator for a particular dataset. Squares represent maturity indicators determined manually, circles depict maturity indicators established automatically, and crosses illustrate the maturity indicators we did not computer. Finally, colors represent the group of principles in the acronym: blue for findable, red for accessible, green for interoperable, and orange for reusable.</p>
+<p>To summarize and compare the outputs of our calculation, we created a customized balloon plots using the R library ggplot2 <span class="citation" data-cites="9ZeJmRhV">[<a href="#ref-9ZeJmRhV" role="doc-biblioref">17</a>]</span>. In the graph, each row corresponds to a user-case and each column to a FAIR maturity indicator. The size of each shape is the value of a specific FAIR maturity indicator for a particular dataset. Squares represent maturity indicators determined manually, circles depict maturity indicators established automatically, and crosses illustrate the maturity indicators we did not compute. Finally, colors represent the group of principles in the acronym: blue for findable, red for accessible, green for interoperable, and orange for reusable.</p>
 <!--
 |                                                                                                               | Wilkinson [@nbCfpQJk]              | Dunning [@171FPA92w]                                                  | Weber [@fX0kfRFY]                                 | Our approach                                      |                 
 |---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------|
@@ -1377,39 +1374,43 @@ Not evaluated (None)
 </table>
 <h2 id="discussion" class="page_break_before">Discussion</h2>
 <p><strong>Heavily work in progress</strong></p>
-<p>In this study, we created an approach to calculated FAIR maturity indicators in the life science. We tested our approach on two use cases that are actual research questions asked in our department.</p>
-<p>Discussion of the four groups.</p>
-<p>We present a workflow to compute FAIR maturity indicators for data repositories in the life sciences.</p>
-<p>for two use-cases of dataset retrieval in the life sciences.</p>
-<p><strong>Discussion of results</strong></p>
-<p>Comparison with other papers - create graph for dunning? - Comments on the findings</p>
-<p><strong>How we calculated the metrics</strong> <em>Criteria</em> We developed criteria to assess FAIRness based on the guidelines proposed by the group and from the practical implementations by Dunning and Weber.</p>
-<p>We developed a mixed manual and automatic appraoach to assess FAIR metrics. Dunning at al. used a manual approach, while Weber et al. used a fully computational approach. We opted for a mixed approach because the guidelines stress on the importance of the fact that information should be retrieved by machines, therefore a complete manual approach is not desirable On the other side, a fully computational approach is currently not possible because not all information are retrievable via API and in fact, Weber et al. calculated 2/3 of metrics. Specifically, we ret We used a mixed automatic and manual implementation to retrieve all the possible information with the hope that information now retrieved manually will in the close future be possible to retrieve them automatically. Both the manual and the automatic retrieval of information required a large amount of time and the knowledge of data structure and schema. Querying data repository required knowledge of metadata structure and of data field (i.e. xml tags). Specifically, we had to know in advance some keywords, such as “author”, “email” Similary, we had to know the fields in re3data, such as “data availability policy” for A2 “datalicensename” and “datalicenseurl” for R1.1 In addition, we had to implement a manual change For example, when assessing criteria F2 (keywords are in metadata), we had to change the keyword “true” that we used for data retrieval into “rawdata” To simplyfy our computations, we put all tags lower case and vectorized for quick search.</p>
-<p>We also simulated data retrieval. This is different from Wilkison because their metrics start with a globally unique identifier (GUID). However, when researchers look for data they do not know already the identifiers, they do not simulate what researchers do. In addition, this workflow would preclude the analysis of our two repositories as they do not provide GUIDs (F1).</p>
-<p>We extracted information about the repositories from re3data. These information were about DOI, availability policy of metadata when data are not available, and data license. We selected only one registry (re3data) and one search engine(Google Dataset search). In the first case, alternative can be FAIRshare, however it still does not provide an open API. on the other side, we could have choose a generic search engine, like google, but we considered pertinent to look for a dataset specifically in a dataset search engine. To compute the metrics we follow</p>
+<p>In this study, we proposed an approach to calculated FAIR maturity indicators in the life science. We tested our method on two real use cases from our Department. We created a reproducible pipeline using Jupter notebook.</p>
+<!--**Criteria and discussion of results** -->
+<p>Our implementation builds on the shoulders of the implementations by the Maturity Indicator Authoring Group [], Dunning et al. [], and Weber et al []. Specifically:</p>
+<ul>
+<li><p><em>Findable</em> For F1 we all agree that there has to be a DOI, and similarty for F3 F2 is the metric that allows for the largest interpretation that goes from structure data, metrics of time and compliance F3 is fine for everybody F4 different searchable resources</p></li>
+<li><p><em>Accessible</em> We retrieved our data using the HTTP protocol, which is free, open and allows for authentication. However, differently from what specified by the guideline, we did not retrieve data and metadata by their identifiers, but by the search keywords researchers used when manually querying the repository because the repository we investigated do not provide globally unique and persistent identifiers. Both dataset top scored in the A1 and sub-principles, however NBIA_GEO did not have an automatically retrievable policy from re3data (which does not imply that the policy is automatically or manually retrievable somewhere. If data is on a local excel file or database, then we need a different implementation</p></li>
+<li><p><em>Interoperable</em> I1: Similarly to Wilkinson et al, we passed metadata structured in a formal file format, such as xml. However Dunning et al and Weber et al. suggest using a more strict criteria such as that metadata have to have a standardized schema, such as <a href="https://www.dublincore.org/">Dublin Core</a> or <a href="https://schema.datacite.org/">DataCite</a>. Similarly to dunning and weber, we did not evaluate FAIRness of vocabulary as it is not clear to us… Finally, we manually looked for reference to other dataset identifiers in the metadata Both use cases scored the same way because they both had structured metadata (e.g. not a plain text) and did contain references to other datasets</p></li>
+<li><p><em>Reusable</em> The Maturity Indicator Authoring group does not provide any guideline, weber uses the same metadata as F2. We followed the separation by dunning of dividing findable from reusable keywords. However, we calculated that just as a difference between the total amount of metadata and the search keywords The license presence is pretty straight-forward, there is accordance among Studies Wherease for provenance we propose specifically authors email and title of publication Finally, non of the work in the literature nor the guidelines have evaluated community standards, most likely because they do not exist Our use cases scored similarly well for the two first maturity indicators as they both had a large number of metadata and a license retrievable in re3data, however the case NBIA_GEO did not have authors in the metadata</p></li>
+</ul>
+<p>The largest similarities among studies to calculate maturity indicators are for more precise guidelines, such as F1, whereas the a range of different implementations are for the F2, I1 Comparison with other papers - create graph for dunning? - Comments on the findings</p>
+<!--*Practical implementation*-->
+<p>We assessed FAIR maturity indicators using a mixed manual and automatic approach. In the literature, Dunning at al. used a fully manual approach, although the guidelines recommend an automatic one. On the other side, Weber et al. used a fully automatic approach, but they could calculate only 10 out of 15 metrics. A mixed approach allowed us to assess automatically the metrics that were easily retrievable, and to complement manually with the ones that were not retrievable via API, hoping that in the future it will be possible to retrieve them automatically Both our manual and automatic implementations required knowledge of data schema. Specifically, we had to know in advance some keywords, such as “author”, “email” Similarly, we had to know the fields in re3data, such as “data availability policy” for A2 “datalicensename” and “datalicenseurl” for R1.1 In addition, we had to implement a manual change For example, when assessing criteria F2 (keywords are in metadata), we had to change the keyword “true” that we used for data retrieval into “rawdata” This is different from what Wilkinsons et al propose with the new FAIR maturity indicators, where the approach is fully automatic. However, their workflow start with a globally unique identifier (GUID). However, when researchers look for data they do not know already the identifiers, they do not simulate what researchers do. In addition, this workflow would preclude the analysis of our two repositories as they do not provide GUIDs (F1).</p>
+<p>Metadata format chosen could be <a href="https://schema.datacite.org/">DataCite</a>, which provides a standard for metadata for publication and citation of research data, or <a href="www.schema.org">schema.org</a>, which provide more generic schemas for structured data on the Internet. Both are community-based initiative aiming at</p>
+<p>We extracted information about the repositories from re3data. These information were about DOI, availability policy of metadata when data are not available, and data license. We selected only one registry (re3data) and one search engine(Google Dataset search). In the first case, alternative can be FAIRshare, however it still does not provide an open API. on the other side, we could have choose a generic search engine, like google, but we considered pertinent to look for a dataset specifically in a dataset search engine. We chose re3data as it provides an API for queries. Other registries, such as FAIRshare, do not provide open API yet. Similarly, Google Dataset Search does not provide any API, so we did a manual search.</p>
 <p>Similarly to Dunning et al. and to Weber et al. we did not computer two principles. The first isthe principle I2. i.e. presence of a fair metadata vocabulary. The difficulty raises from the fact that The second is R13, which is that metadata follow community standards at those have not been formally established yet.</p>
 <p>comparison with dunning: mainly the criteria expecially difference between metadata for findable and reusable. comparison with Weber: re3data, comparison with Wilkinson: assumes that the GUID is already know thus skipping the finding of the dataset - this is not compatible with our findable criteria</p>
-<p>Similarity with all cases:</p>
-<p><em>Practical implementation</em> Before calculating the metrics we decided to simulate dataset retrieval via API. We assumed that a researcher does not know a priori the. Sometimes you dont get only 1 datasets</p>
-<p><em>Difficulties with the three repositories</em> To answer our criteria, we queried three different kinds of repositories: Data repositories, re3data and Google Dataset Search.</p>
-<p>We chose re3data as it provides an API for queries. Other registries, such as FAIRshare, do not provide open API yet.</p>
-<p>Similarly, Google Dataset Search does not provide any API, so we did a manual search.</p>
-<p>Manual vs automatic retrieval</p>
-<p><em>Comparison to the other works</em></p>
+<p>Before calculating the metrics we decided to simulate dataset retrieval via API. We assumed that a researcher does not know a priori the. Sometimes you dont get only 1 datasets</p>
+<!--**Reproducibility**-->
 <ul>
-<li>Comparison to Wilkinson: Our metrics do not start with metadata GUID (general user identifier) (see gen2) but with the researcher’s question. Using GUID implies that the researcher has already found the dataset of interest<br />
-</li>
-<li>Compare to Weber and Dunning</li>
+<li>We chose python as it is a language that is used in various scientific communities and thus could potentially provide extension and reuse of our work.</li>
+<li>We chose to use Jupyter notebooks for reproducibility of our results. However, databases change but they do not provide versions. Therefore, we can just declare the time stamps when our query was done. In addition, Jupyter notebooks are both machine and human readable, and easier to export to other domains that do not use specifically programming languages designed for the web<br />
+To be fully reproducible, ideally repositories and registries should have a version of their database or provide a doi of metadata</li>
 </ul>
-<p><em>Limitations of current implementation</em> - Limitations: A1, A11, A12: retrieve information only via HTTP, so they are all true. If data is on a local excel file or database, then we need a different implementation - Repositories not databases</p>
-<p><strong>Visualizing the FAIR maturity indicators</strong></p>
-<p>We visualized t This visualization allowed us to summarize FAIR evaluation and compare the results of various dataset and implementations. We chose not to create a final score in accordance (to uniform) with the recommendations for the FAIR guidelines that want to keep suggestions and not to assign a score. The summary of metrics is provided by the fact the we exploited shapes, colors, and sizes to put all possible information. On the other side, the fact that each row represent a dataset allows for comparison among datasets The platform FAIRshake provide visualizations that can dinamically expand to fit scores calculated using different metrics. Scores are in a range that goes from blue (satisfactory) to red (unsatisfactory). Differently, we chose a static approach because these the FAIRshake insignias do not allow for comparison has implemented visualizations called “insignas”, where they use color gradents</p>
+<!--**Visualizing the FAIR maturity indicators**-->
+<p>To summarize and compare the FAIRness evaluation we used a visualization that embeds principles, scores, and type of information retrieval (manual, automatic, not assessed).</p>
+<p>We created a visualization plot to summarize FAIR evaluation and compare results of various datasets.</p>
+<p>and implementations. We chose not to create a final score in accordance (to uniform) with the recommendations for the FAIR guidelines that want to keep suggestions and not to assign a score. The summary of metrics is provided by the fact the we exploited shapes, colors, and sizes to put all possible information. On the other side, the fact that each row represent a dataset allows for comparison among datasets</p>
+<p>A visual approach Visualizing results for summary and comparison is an approach taken also by FAIRshake. They created <em>insignas</em>, which FAIRness using a color gradient from blue (satisfactory) to red (unsatisfactory). The platform FAIRshake provide visualizations that can dinamically expand to fit scores calculated using different metrics.</p>
+<p>Differently, we chose a static approach because these the FAIRshake insignias do not allow for comparison has implemented visualizations called “insignas”, where they use color gradents</p>
 <ul>
 <li>We chose to plot our results instead of providing a final score to avoid negative connotations (see FAIR metrics vs. maturity indicators). However, we wanted to be able to compare our results, so we used balloon plots, usually used for categorical data visualization and comparison. (FAIR shake uses visualizations too but they are not comparable)<br />
 </li>
 <li>NO final score because</li>
 </ul>
-<p><strong>Reproducibility</strong> - We chose to use Jupyter notebooks for reproducibility of our results. However, databases change but they do not provide versions. Therefore, we can just declare the time stamps when our query was done. In addition, Jupyter notebooks are both machine and human readable, and easier to export to other domains that do not use specifically programming languages designed for the web</p>
+<figure>
+<img src="images/dunning.svg" alt="Figure 2: comparison" id="fig:dunning" style="width:100.0%" /><figcaption><span>Figure 2:</span> comparison</figcaption>
+</figure>
 <p><strong>Difficulty / Limitations</strong></p>
 <p>Some limitations must be acknowledged. First, our approach requires an a-priori knowledge of metadata structure.</p>
 <p>Different repositories use different data structure. Automatization occurs after a lot of manual investigation</p>
@@ -1421,8 +1422,9 @@ Our implementation requires specific knowledge of the database structure and thu
 Different repositories use different html tags to define their</li>
 <li>Database APIs do not allow to retrieve all the information that the user interface allows (example 1: ChEBI does not allow to retrieve information about reactions; example 2: Array Express has some metadata in tables that must be downloaded locally before being queried</li>
 </ul>
+<p><em>Limitations of current implementation</em> - Limitations: A1, A11, A12: retrieve information only via HTTP, so they are all true. If data is on a local excel file or database, then we need a different implementation + Retrieval is not via identifier but keywords - Repositories not databases</p>
 <p><em>General considerations</em> All the information needed are retrieved from metadata, not from data. We did not investigate databases, but only repositories</p>
-<p>Conclusion: - it would be great if all repos had similar schema - it would be great if we could access everything via API</p>
+<p>In conclusion, we have proposed a computational implementation to calculate FAIR maturity indicators in the life sciences. Similarities and differences with the other criteria Conclusion: - it would be great if all repos had similar schema - it would be great if we could access everything via API</p>
 <p><!--
   The interpretation of the FAIR principles was not always trivial. Given that they are vague by definition, we had to take decision. We based our decisions on the principles themselves,
   the interpretation by the authors of the metrics and two previous studies that computed FAIR maturity indicators on a large
