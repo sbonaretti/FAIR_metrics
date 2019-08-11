@@ -7,6 +7,6 @@ dependencies:
   - simplegeneric # for rpy2
   - watermark # for dependences
   # R packages
-  - rpy2=3.0.4
+  - rpy2
   - r-base=3.4.3
   - r-ggplot2
