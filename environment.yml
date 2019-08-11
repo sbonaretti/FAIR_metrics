@@ -8,5 +8,5 @@ dependencies:
   - watermark # for dependences
   # R packages
   - rpy2=3.0.4
-  - r-base=3.4.1
+  - r-base=3.4.3
   - r-ggplot2
