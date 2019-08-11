@@ -4,9 +4,10 @@ channels:
 dependencies:
   - python=3.7.3
   - pandas=0.24.2
-  - simplegeneric # for rpy2
   - watermark # for dependences
+  - simplegeneric # for rpy2
+  - rpy2  
+  - numpy=1.16.2 # rpy2 needs this version
   # R packages
-  - rpy2
   - r-base=3.6.1
   - r-ggplot2
