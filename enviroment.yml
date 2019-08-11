@@ -1,4 +1,4 @@
-name: pykneer
+name: fair_maturity_indicators
 channels:
   - conda-forge
 dependencies:
