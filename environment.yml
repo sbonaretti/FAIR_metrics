@@ -4,7 +4,7 @@ channels:
 dependencies:
   - python=3.7.3
   - pandas=0.24.2
-  - bs==4.7.1
+  - bs=4.7.1
   - simplegeneric # for rpy2
   - watermark # for dependences
   # R packages
