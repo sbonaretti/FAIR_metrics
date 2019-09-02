@@ -1,9 +1,3 @@
-Special issue on FAIR data, systems, and analysis
-https://datasciencehub.net/fair
+The paper is currently on bioRxiv. 
 
-Guidelines:
-https://datasciencehub.net/content/guidelines-authors
-
-Submission: 
-https://datasciencehub.net/content/submit-manuscript
-
+It was submitted to the special issue on [FAIR data, systems, and analysis](https://datasciencehub.net/fair) of [DataScience](https://datasciencehub.net/) 
