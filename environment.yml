@@ -2,11 +2,11 @@ name: fair_maturity_indicators
 channels:
   - conda-forge
 dependencies:
-  - python=3.7.3
-  - pandas=0.24.2
+  - python=3.7.1
+  - pandas=0.23.4
   - watermark # for dependences
   - simplegeneric # for rpy2
-  - rpy2  
+  - rpy2=3.0.4 
   # R packages
-  - r-base=3.6.1
+  - r-base=3.4.1
   - r-ggplot2
