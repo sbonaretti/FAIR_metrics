@@ -5,8 +5,10 @@ dependencies:
   - python=3.7.1
   - pandas=0.23.4
   - watermark # for dependences
+  - numpy=1.15.1
   - simplegeneric # for rpy2
   - rpy2
+  - numpy=1.15.1
   # R packages
   - r-base=3.4.1
   - r-ggplot2
